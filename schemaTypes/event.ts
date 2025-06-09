@@ -95,7 +95,7 @@ export const event = defineType({
     {
       name: 'tagText',
       type: 'string',
-      validation: (Rule) => Rule.optional().min(1).max(50),
+      validation: (Rule) => Rule.optional().min(1).max(8),
     },
     {
       name: 'tagTextSize',
