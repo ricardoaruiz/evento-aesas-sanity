@@ -9,7 +9,10 @@
     "start": "sanity start",
     "build": "sanity build",
     "deploy": "sanity deploy",
-    "deploy-graphql": "sanity graphql deploy"
+    "deploy-graphql": "sanity graphql deploy",
+    "dataset-list": "sanity dataset list",
+    "export:dev": "sanity dataset export develop ./data",
+    "import:prod": "sanity dataset import ./data/develop.tar.gz production --replace"
   },
   "keywords": [
     "sanity"
