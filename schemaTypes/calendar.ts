@@ -68,5 +68,11 @@ export const calendarType = defineType({
       type: 'reference',
       to: [{type: 'calendarBanner'}],
     },
+    {
+      title: 'Events',
+      name: 'events',
+      type: 'array',
+      of: [{type: 'reference', to: [{type: 'event'}]}],
+    },
   ],
 })
