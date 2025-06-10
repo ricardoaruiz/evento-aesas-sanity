@@ -74,5 +74,27 @@ export const calendarType = defineType({
       type: 'array',
       of: [{type: 'reference', to: [{type: 'event'}]}],
     },
+    {
+      name: 'color',
+      type: 'string',
+      title: 'Cor do calendário',
+      description: 'Define a cor do calendário',
+      initialValue: 'red',
+      options: {
+        list: [
+          {title: 'Amarelo', value: 'yellow'},
+          {title: 'Amber', value: 'amber'},
+          {title: 'Azul', value: 'blue'},
+          {title: 'Esmeralda', value: 'emerald'},
+          {title: 'Cinza', value: 'gray'},
+          {title: 'Laranja', value: 'orange'},
+          {title: 'Roxo', value: 'purple'},
+          {title: 'Vermelho', value: 'red'},
+          {title: 'Verde', value: 'green'},
+          {title: 'Violeta', value: 'violet'},
+        ],
+      },
+      validation: (Rule) => Rule.optional(),
+    },
   ],
 })

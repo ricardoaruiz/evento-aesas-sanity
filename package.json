@@ -11,13 +11,15 @@
     "deploy": "sanity deploy",
     "deploy-graphql": "sanity graphql deploy",
     "dataset-list": "sanity dataset list",
-    "export:dev": "sanity dataset export develop ./data",
-    "import:prod": "sanity dataset import ./data/develop.tar.gz production --replace"
+    "export:dev": "rm -f ./data/develop.tar.gz && sanity dataset export develop ./data",
+    "import:prod": "sanity dataset import ./data/develop.tar.gz production --replace",
+    "update:prod": "npm run export:dev && npm run import:prod"
   },
   "keywords": [
     "sanity"
   ],
   "dependencies": {
+    "@sanity/color-input": "^4.0.3",
     "@sanity/vision": "^3.91.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
