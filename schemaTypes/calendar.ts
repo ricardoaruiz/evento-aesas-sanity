@@ -69,6 +69,11 @@ export const calendarType = defineType({
       to: [{type: 'calendarBanner'}],
     },
     {
+      name: 'poster',
+      type: 'image',
+      title: 'Poster do calendário',
+    },
+    {
       title: 'Events',
       name: 'events',
       type: 'array',
