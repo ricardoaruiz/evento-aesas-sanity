@@ -2,18 +2,29 @@ import {defineType} from 'sanity'
 
 export const event = defineType({
   name: 'event',
-  title: 'Event',
+  title: 'Evento - (cards e página do evento)',
+  description: 'Evento que será exibido na página de calendário',
   type: 'document',
   fields: [
     {
       name: 'title',
+      title: 'Slug (title)',
       type: 'string',
-      validation: (Rule) => Rule.required().min(1).max(100),
+      validation: (Rule) => Rule.optional(),
+    },
+    {
+      name: 'isActive',
+      title: 'Indica se o evento está ativo (isActive)',
+      description:
+        'Caso esteja ativo terá uma página publicada para o evento e o botão ver evento estará visível no card da página de calendário',
+      type: 'boolean',
+      initialValue: false,
     },
     {
       name: 'month',
+      title: 'Mês do Evento (month)',
+      description: 'Mês em que o evento irá ocorrer',
       type: 'string',
-      description: 'Mês do evento',
       options: {
         list: [
           'Janeiro',
@@ -33,56 +44,104 @@ export const event = defineType({
       validation: (Rule) => Rule.required(),
     },
     {
+      name: 'bannerLeftImage',
+      title: 'Imagem esquerda do banner (bannerLeftImage)',
+      description: 'Imagem que será exibida no lado esquerdo do banner do evento na tela do evento',
+      type: 'image',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'bannerRightImage',
+      title: 'Imagem direita do banner (bannerRightImage)',
+      description: 'Imagem que será exibida no lado direito do banner do evento na tela do evento',
+      type: 'image',
+      validation: (Rule) => Rule.required(),
+    },
+    {
       name: 'contentTitle',
+      title: 'Nome do Evento (contentTitle)',
+      description: 'Ex: GERENCIAMENTO DE PROJETOS NO GAC',
       type: 'string',
-      description: 'Título do conteúdo do evento',
       validation: (Rule) => Rule.required().min(1).max(50),
     },
     {
       name: 'contentDescription',
+      title: 'Tipo do evento (contentDescription)',
+      description: 'Ex: online, presencial ou ambos',
       type: 'string',
-      description: 'Descrição do conteúdo do evento',
       options: {
         list: ['aulas on-line', 'aulas presenciais', 'aulas on-line e presenciais'],
       },
       validation: (Rule) => Rule.required(),
     },
     {
-      name: 'onlineTime',
+      name: 'associatedPrice',
+      title: 'Preço Associado (associatedPrice)',
+      description: 'Ex: R$ 100,00',
       type: 'string',
-      description: 'Horário do evento online',
+      validation: (Rule) => Rule.optional().min(1).max(15),
+    },
+    {
+      name: 'nonAssociatedPrice',
+      title: 'Preço Não Associado (nonAssociatedPrice)',
+      description: 'Ex: R$ 100,00',
+      type: 'string',
+      validation: (Rule) => Rule.optional().min(1).max(15),
+    },
+    {
+      name: 'onlineTime',
+      title: 'Horário do Evento Online (onlineTime)',
+      description: 'Ex: das 8h as 12h',
+      type: 'string',
       validation: (Rule) => Rule.required().min(1).max(20),
     },
     {
       name: 'onlineDates',
+      title: 'Datas do Evento Online (onlineDates)',
+      description: 'Ex: 01/11, 02/11',
       type: 'string',
-      description: 'Datas do evento online',
       validation: (Rule) => Rule.required().min(1).max(200),
     },
     {
       name: 'presencialTime',
+      title: 'Horário do Evento Presencial (presencialTime)',
+      description: 'Ex: das 14h as 18h',
       type: 'string',
-      description: 'Horário do evento presencial',
       validation: (Rule) => Rule.optional().min(0).max(20),
     },
     {
       name: 'presencialDates',
+      title: 'Datas do Evento Presencial (presencialDates)',
+      description: 'Ex: 01/11, 02/11',
       type: 'string',
-      description: 'Datas do evento presencial',
-      validation: (Rule) => Rule.optional().min(1).max(20),
+      validation: (Rule) => Rule.optional().min(1).max(200),
+    },
+    {
+      name: 'workload',
+      title: 'Carga Horária (workload)',
+      description: '20h, 40h, etc.',
+      type: 'string',
+      validation: (Rule) => Rule.optional().min(1).max(4),
+    },
+    {
+      name: 'instructors',
+      title: 'Pessoas instrutoras ou palestrantes (instructors)',
+      description: 'Pessoas que ministrarão ou palestrarão no evento',
+      type: 'array',
+      of: [{type: 'reference', to: [{type: 'person'}]}],
     },
     {
       name: 'footerText',
+      title: 'Texto do Rodapé do card de Evento (footerText)',
+      description: 'Ex: Carga Horária',
       type: 'string',
-      description: 'Texto que aparece no rodapé do evento',
       validation: (Rule) => Rule.required().min(1).max(50),
     },
     {
       name: 'contentTileSize',
+      title: 'Tamanho do titulo do evento no card na tela de calendário (contentTileSize)',
+      description: 'Caso não informdo, o valor padrão será "Médio"',
       type: 'string',
-      title: 'Content Tile Size',
-      description: 'Define o tamanho da fonte do titulo do conteúdo',
-      initialValue: 'medium',
       options: {
         list: [
           {title: 'Grande', value: 'large'},
@@ -94,14 +153,16 @@ export const event = defineType({
     },
     {
       name: 'tagText',
+      title: 'Texto da Tag no card de Evento (eventTagText)',
+      description: 'Ex: OEMAS ou NOTURNO / Utilize palavras curtas com no máximo 8 caracteres',
       type: 'string',
       validation: (Rule) => Rule.optional().min(1).max(8),
     },
     {
       name: 'tagTextSize',
+      title: 'Tamanho do Texto da Tag (tagTextSize)',
+      description: 'Caso não informdo, o valor padrão será "Médio"',
       type: 'string',
-      title: 'Tag Text Size',
-      description: 'Define o tamanho da fonte do texto da tag',
       options: {
         list: [
           {title: 'Grande', value: 'large'},
@@ -113,9 +174,9 @@ export const event = defineType({
     },
     {
       name: 'tagVariant',
+      title: 'Variante da Tag (tagVariant)',
+      description: 'Caso não informado, o valor padrão será "Dourado"',
       type: 'string',
-      title: 'Tag Variant',
-      description: 'Define a variante da tag',
       options: {
         list: [
           {title: 'Dourado', value: 'gold'},

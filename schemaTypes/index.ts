@@ -1,5 +1,6 @@
 import {calendarBanner, calendarHeader, calendarType} from './calendar'
 import {event} from './event'
+import {person} from './person'
 import {updateDevelop, updateProdction} from './webhook-triggers'
 
 export const schemaTypes = [
@@ -9,4 +10,5 @@ export const schemaTypes = [
   calendarBanner,
   calendarType,
   event,
+  person,
 ]

@@ -2,21 +2,27 @@ import {defineType} from 'sanity'
 
 export const calendarHeader = defineType({
   name: 'calendarHeader',
-  title: 'Calendar Header',
+  title: 'Cabeçalho (páginas do calendário e evento)',
+  description: 'Cabeçalho das páginas do calendário e evento, onde tem o título e sub título',
   type: 'document',
   fields: [
     {
       name: 'title',
+      title: 'Slug (title)',
       type: 'string',
       validation: (Rule) => Rule.required().min(1).max(100),
     },
     {
       name: 'firstLine',
+      title: 'Título do cabeçalho (firstLine)',
+      description: 'Primeira linha do cabeçalho do calendário',
       type: 'string',
       validation: (Rule) => Rule.required().min(1).max(100),
     },
     {
       name: 'secondLine',
+      title: 'Título do subcabeçalho (secondLine)',
+      description: 'Segunda linha do cabeçalho do calendário',
       type: 'string',
       validation: (Rule) => Rule.required().min(1).max(100),
     },
@@ -25,21 +31,27 @@ export const calendarHeader = defineType({
 
 export const calendarBanner = defineType({
   name: 'calendarBanner',
-  title: 'Calendar Banner',
+  title: 'Banner (página do calendário)',
+  description: 'Banner da página de calendário, onde tem o título e sub título',
   type: 'document',
   fields: [
     {
       name: 'title',
+      title: 'Slug (title)',
       type: 'string',
       validation: (Rule) => Rule.required().min(1).max(100),
     },
     {
       name: 'firstLine',
+      title: 'Título do banner (firstLine)',
+      description: 'Primeira linha do banner do calendário',
       type: 'string',
       validation: (Rule) => Rule.required().min(1).max(100),
     },
     {
       name: 'secondLine',
+      title: 'Sub título do banner (secondLine)',
+      description: 'Segunda linha do banner do calendário',
       type: 'string',
       validation: (Rule) => Rule.required().min(1).max(100),
     },
@@ -48,40 +60,47 @@ export const calendarBanner = defineType({
 
 export const calendarType = defineType({
   name: 'calendar',
-  title: 'Calendar',
+  title: 'Página calendário',
+  description:
+    'Página de calendário dos eventos. Nessa página são exibidos os cards de eventos com links para as páginas de cada evento',
   type: 'document',
   fields: [
     {
       name: 'slug',
+      title: 'Slug (slug)',
       type: 'string',
       validation: (Rule) => Rule.required().min(1).max(100),
     },
     {
-      title: 'Header',
       name: 'header',
+      title: 'Header do calendário (calendarHeader)',
+      description: 'Cabeçalho do calendário onde tem o título e sub título',
       type: 'reference',
       to: [{type: 'calendarHeader'}],
     },
     {
-      title: 'Banner',
       name: 'banner',
+      title: 'Banner do calendário (calendarBanner)',
+      description: 'Banner do calendário onde tem o título e sub título',
       type: 'reference',
       to: [{type: 'calendarBanner'}],
     },
     {
       name: 'poster',
+      title: 'Poster do calendário (poster)',
       type: 'image',
-      title: 'Poster do calendário',
     },
     {
-      title: 'Events',
       name: 'events',
+      title: 'Eventos do calendário (events)',
+      description: 'Eventos que pertencem a este calendário',
       type: 'array',
       of: [{type: 'reference', to: [{type: 'event'}]}],
     },
     {
       name: 'color',
-      title: 'Cor do calendário',
+      title: 'Cor do calendário (color)',
+      description: 'Cor do calendário, usada para destacar banner, eventos e rodapé da página',
       type: 'color',
       options: {
         colorList: [
