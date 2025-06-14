@@ -58,7 +58,7 @@ export const calendarBanner = defineType({
   ],
 })
 
-export const calendarType = defineType({
+export const calendar = defineType({
   name: 'calendar',
   title: 'Página calendário',
   description:
