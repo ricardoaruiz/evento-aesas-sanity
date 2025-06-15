@@ -142,10 +142,38 @@ export const event = defineType({
       validation: (Rule) => Rule.optional().min(1).max(4),
     },
     {
+      name: 'headerTextColor',
+      title: 'Cor do Texto do header (headerTextColor)',
+      description:
+        'Cor do texto que será exibido no header do evento caso não selecionado será preto',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Branco', value: '#FFFFFF'},
+          {title: 'Preto', value: '#000000'},
+        ],
+      },
+      validation: (Rule) => Rule.optional(),
+    },
+    {
       name: 'bannerTextColor',
       title: 'Cor do Texto do Banner (bannerTextColor)',
       description:
-        'Cor do texto que será exibido no banner do evento caso não selecionado será branco',
+        'Cor do texto que será exibido no banner do evento caso não selecionado será preto',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Branco', value: '#FFFFFF'},
+          {title: 'Preto', value: '#000000'},
+        ],
+      },
+      validation: (Rule) => Rule.optional(),
+    },
+    {
+      name: 'footerTextColor',
+      title: 'Cor do Texto do Footer (footerTextColor)',
+      description:
+        'Cor do texto que será exibido no footer do evento caso não selecionado será preto',
       type: 'string',
       options: {
         list: [
