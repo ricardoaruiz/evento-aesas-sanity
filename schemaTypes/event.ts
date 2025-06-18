@@ -39,6 +39,16 @@ export const event = defineType({
       initialValue: false,
     },
     {
+      name: 'registrationLink',
+      title: 'Link de Inscrição (registrationLink)',
+      description: 'Link para a página de inscrição do evento',
+      type: 'url',
+      validation: (Rule) =>
+        Rule.optional().uri({
+          scheme: ['http', 'https'],
+        }),
+    },
+    {
       name: 'month',
       title: 'Mês do Evento (month)',
       description: 'Mês em que o evento irá ocorrer',
