@@ -40,8 +40,18 @@ export const event = defineType({
     },
     {
       name: 'registrationLink',
-      title: 'Link de Inscrição (registrationLink)',
-      description: 'Link para a página de inscrição do evento',
+      title: 'Link de Inscrição associados e não associados (registrationLink)',
+      description: 'Link para a página de inscrição do evento (associados e não associados)',
+      type: 'url',
+      validation: (Rule) =>
+        Rule.optional().uri({
+          scheme: ['http', 'https'],
+        }),
+    },
+    {
+      name: 'registrationLinkGovernmentEmployee',
+      title: 'Link de Inscrição funcionários públicos (registrationLinkGovernmentEmployee)',
+      description: 'Link para a página de inscrição do evento (funcionários públicos)',
       type: 'url',
       validation: (Rule) =>
         Rule.optional().uri({
