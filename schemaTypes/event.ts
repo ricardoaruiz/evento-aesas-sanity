@@ -39,6 +39,14 @@ export const event = defineType({
       initialValue: false,
     },
     {
+      name: 'isHibrid',
+      title: 'Indica se o evento é híbrido (isHibrid)',
+      description:
+        'Caso esteja ativo exibirá uma mensagem informando que o evento é gratuito para profissionais de orgãos ambientais',
+      type: 'boolean',
+      initialValue: false,
+    },
+    {
       name: 'registrationLink',
       title: 'Link de Inscrição associados e não associados (registrationLink)',
       description: 'Link para a página de inscrição do evento (associados e não associados)',
