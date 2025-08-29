@@ -108,7 +108,7 @@ export const event = defineType({
       title: 'Nome do Evento (contentTitle)',
       description: 'Ex: GERENCIAMENTO DE PROJETOS NO GAC',
       type: 'string',
-      validation: (Rule) => Rule.required().min(1).max(50),
+      validation: (Rule) => Rule.required().min(1).max(65),
     },
     {
       name: 'contentDescription',
