@@ -10,7 +10,7 @@ export default defineConfig([
     name: 'Production',
     title: 'EventosAesas [Prod]',
     basePath: '/eventos-aesas-production',
-    projectId: 'ejmsm84f',
+    projectId: 'vq1wc9fu',
     dataset: 'production',
     plugins: [structureTool(), visionTool(), colorInput(), media()],
     schema: {
@@ -21,7 +21,7 @@ export default defineConfig([
     name: 'Develop',
     title: 'EventosAesas [Dev]',
     basePath: '/eventos-aesas-dev',
-    projectId: 'ejmsm84f',
+    projectId: 'vq1wc9fu',
     dataset: 'develop',
     plugins: [structureTool(), visionTool(), colorInput(), media()],
     schema: {
