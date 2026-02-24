@@ -219,6 +219,13 @@ export const event = defineType({
       of: [{type: 'reference', to: [{type: 'person'}]}],
     },
     {
+      name: 'sponsors',
+      title: 'Patrocinadores (sponsors)',
+      description: 'Patrocinadores do evento',
+      type: 'array',
+      of: [{type: 'reference', to: [{type: 'sponsor'}]}],
+    },
+    {
       name: 'footerText',
       title: 'Texto do Rodapé do card de Evento (footerText)',
       description: 'Ex: Carga Horária',
