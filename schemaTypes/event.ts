@@ -139,21 +139,21 @@ export const event = defineType({
       title: 'Horário do Evento Online (onlineTime)',
       description: 'Ex: das 8h as 12h',
       type: 'string',
-      validation: (Rule) => Rule.required().min(1).max(20),
+      // validation: (Rule) => Rule.required().min(1).max(20),
     },
     {
       name: 'onlineDates',
       title: 'Datas do Evento Online (onlineDates)',
       description: 'Ex: 01/11, 02/11',
       type: 'string',
-      validation: (Rule) => Rule.required().min(1).max(200),
+      // validation: (Rule) => Rule.required().min(1).max(200),
     },
     {
       name: 'presencialTime',
       title: 'Horário do Evento Presencial (presencialTime)',
       description: 'Ex: das 14h as 18h',
       type: 'string',
-      validation: (Rule) => Rule.optional().min(0).max(20),
+      validation: (Rule) => Rule.optional().min(0).max(25),
     },
     {
       name: 'presencialDates',
@@ -291,29 +291,37 @@ export const event = defineType({
     },
     {
       name: 'registerAssociantedAndNonAssociantedButtonLabel',
-      title: 'Texto do botão de Inscrição associados e não associados (registerAssociantedAndNonAssociantedButtonLabel) na área de conteúdo programatico',
-      description: 'Informe aqui o texto que será exibido no botão de inscrição para associados e não associados na área de conteúdo programatico',
+      title:
+        'Texto do botão de Inscrição associados e não associados (registerAssociantedAndNonAssociantedButtonLabel) na área de conteúdo programatico',
+      description:
+        'Informe aqui o texto que será exibido no botão de inscrição para associados e não associados na área de conteúdo programatico',
       type: 'string',
       validation: (Rule) => Rule.optional(),
     },
     {
       name: 'oemasTitle',
-      title: 'Texto que será exibido antes do botão de inscriçao de OEMAS na área de conteúdo programatico',
-      description: 'Informe aqui o texto que será exibido no botão de inscrição para OEMAS na área de conteúdo programatico',
+      title:
+        'Texto que será exibido antes do botão de inscriçao de OEMAS na área de conteúdo programatico',
+      description:
+        'Informe aqui o texto que será exibido no botão de inscrição para OEMAS na área de conteúdo programatico',
       type: 'string',
       validation: (Rule) => Rule.optional(),
     },
     {
       name: 'oemasDisclaimerText',
-      title: 'Texto que será exibido após o título de inscrição de OEMAS na área de conteúdo programatico',
-      description: 'Informe aqui o texto que será exibido após o título de inscrição para OEMAS na área de conteúdo programatico',
+      title:
+        'Texto que será exibido após o título de inscrição de OEMAS na área de conteúdo programatico',
+      description:
+        'Informe aqui o texto que será exibido após o título de inscrição para OEMAS na área de conteúdo programatico',
       type: 'string',
       validation: (Rule) => Rule.optional(),
     },
     {
       name: 'registerOemasButtonLabel',
-      title: 'Texto do botão de Inscrição de OEMAS (registerOemasButtonLabel) na área de conteúdo programatico',
-      description: 'Informe aqui o texto que será exibido no botão de inscrição para OEMAS na área de conteúdo programatico',
+      title:
+        'Texto do botão de Inscrição de OEMAS (registerOemasButtonLabel) na área de conteúdo programatico',
+      description:
+        'Informe aqui o texto que será exibido no botão de inscrição para OEMAS na área de conteúdo programatico',
       type: 'string',
       validation: (Rule) => Rule.optional(),
     },
